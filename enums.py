@@ -9,7 +9,7 @@ class Resolution(Enum):
     RES_480P = 4
     RES_720P = 5
     RES_1080P = 6
-    RES_4K = 7
+    RES_2160P = 7
 
     def __str__(self):
         s = self.name[4:].capitalize()
@@ -18,7 +18,7 @@ class Resolution(Enum):
     @staticmethod
     def get_from_string(res: str):
         for r in Resolution:
-            if res.upper() in r.name:
+            if res.capitalize() in str(r):
                 return r
         else:
             print(f"Resolution {res} not recognized")
@@ -42,7 +42,7 @@ class Type(Enum):
     @staticmethod
     def get_from_string(type):
         for t in Type:
-            if type.upper() in t.name:
+            if type.lower() == str(t):
                 return t
         else:
             print(f"Type {type} not recognized")

@@ -7,6 +7,9 @@ from ytdownloader import YouTubeDownloader
 
 
 def print_help():
+    print()
+    print()
+    print("YouTube Downloader")
     print("Description:")
     print("  YouTube Downloader is a python application to download videos from YouTube")
     print("Usage:")
@@ -29,10 +32,6 @@ def print_help():
 
 
 def parse_args(args: list):
-    if len(args) == 1:
-        print("You must enter at least one valid link to download from")
-        exit(-2)
-
     output = os.path.join(".", "my_downloaded_videos")
     res = Resolution.RES_480P
     type_ = Type.VIDEO_MP4
@@ -58,10 +57,16 @@ def parse_args(args: list):
 
 
 def main():
+    if len(sys.argv) == 1:
+        print("You must enter at least one valid link to download from.")
+        print_help()
+        exit(-1)
+
     output, res, type_, links = parse_args(sys.argv)
     if not links:
-        print("You must enter at least one valid link to download from")
-        exit(-1)
+        print("You must enter at least one valid link to download from.")
+        print_help()
+        exit(-2)
 
     if not os.path.exists(output):
         os.mkdir(output)
