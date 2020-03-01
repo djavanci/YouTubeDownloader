@@ -60,13 +60,13 @@ def main():
     if len(sys.argv) == 1:
         print("You must enter at least one valid link to download from.")
         print_help()
-        exit(-1)
+        sys.exit(-1)
 
     output, res, type_, links = parse_args(sys.argv)
     if not links:
         print("You must enter at least one valid link to download from.")
         print_help()
-        exit(-2)
+        sys.exit(-2)
 
     if not os.path.exists(output):
         os.mkdir(output)
@@ -81,3 +81,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+    sys.exit(0)
