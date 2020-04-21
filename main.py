@@ -48,7 +48,7 @@ def parse_args(args: list):
         elif sys.argv[i] in ["-t", "--type"]:
             i += 1
             type_ = Type.get_from_string(sys.argv[i])
-        elif sys.argv[i].startswith("https://www.youtube.com"):
+        elif sys.argv[i].startswith("https://www.youtube.com") or sys.argv[i].startswith("https://youtu.be"):
             links.append(sys.argv[i])
 
         i += 1
